@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "calcul-irl"
+version = "0.1.0"
+description = "Révision annuelle d'un loyer d'habitation avec l'indice de référence des loyers (IRL) de l'INSEE"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Théo Pasquier" }]
+keywords = ["IRL", "indice de référence des loyers", "révision de loyer", "bail", "location", "INSEE"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "Natural Language :: French",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business :: Financial",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+calcul-irl = "calcul_irl.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/TheoPSR01/calcul-irl"
+Issues = "https://github.com/TheoPSR01/calcul-irl/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/calcul_irl"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
